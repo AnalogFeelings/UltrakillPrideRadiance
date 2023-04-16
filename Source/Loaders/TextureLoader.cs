@@ -20,14 +20,41 @@
 #endregion
 
 using System.Collections.Generic;
+using PrideRadiance.Utils;
 using UnityEngine;
 
-namespace PrideRadiance.Helpers;
+namespace PrideRadiance.Loaders;
 
 /// <summary>
-/// Keeps track of the state of the mod.
+/// Class that handles loading pride flag gradient textures.
 /// </summary>
-public static class StateHelper
+public class TextureLoader
 {
-    public static List<Texture2D> RadianceTextures = new List<Texture2D>();
+    private readonly List<string> _AllFlags = new List<string>()
+    {
+        "GayFlag.png",
+        "TransFlag.png"
+    };
+
+    /// <summary>
+    /// Loads all the required flag textures into the <see cref="StateTracker"/>.
+    /// </summary>
+    /// <remarks>
+    /// Must only be called once during plugin startup.
+    /// </remarks>
+    public void LoadFlagTextures()
+    {
+        foreach (string flag in _AllFlags)
+        {
+            byte[] flagContents = ResourceUtils.GetBytesFromResource(flag);
+            
+            Texture2D flagTexture = new Texture2D(2, 2);
+            bool loadSuccessful = flagTexture.LoadImage(flagContents);
+
+            if (!loadSuccessful)
+                continue; // Ignore.
+            
+            StateTracker.RadianceTextures.Add(flagTexture);
+        }
+    }
 }

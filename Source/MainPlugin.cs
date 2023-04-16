@@ -21,7 +21,7 @@
 
 using BepInEx;
 using HarmonyLib;
-using PrideRadiance.Helpers;
+using PrideRadiance.Loaders;
 using Debug = UnityEngine.Debug;
 
 namespace PrideRadiance;
@@ -30,16 +30,19 @@ namespace PrideRadiance;
 [BepInProcess("ULTRAKILL.exe")]
 public class MainPlugin : BaseUnityPlugin
 {
-    public HookHelper HookHelper { get; set; }
+    public HookLoader HookLoader { get; set; }
+    public TextureLoader TextureLoader { get; set; }
     public Harmony Harmony { get; set; }
     
     private void Awake()
     {
         Debug.Log("Using the PrideRadiance mod by AestheticalZ https://github.com/AestheticalZ");
 
-        HookHelper = new HookHelper();
+        HookLoader = new HookLoader();
+        TextureLoader = new TextureLoader();
         Harmony = new Harmony("org.aestheticalz.ultrakill.prideradiance");
         
-        HookHelper.RegisterAllHooks(Harmony);
+        HookLoader.RegisterAllHooks(Harmony);
+        TextureLoader.LoadFlagTextures();
     }
 }

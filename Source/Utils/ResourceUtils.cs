@@ -19,26 +19,43 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
+using System.IO;
 using System.Linq;
-using HarmonyLib;
-using PrideRadiance.Attributes;
-using PrideRadiance.Extensions;
+using System.Reflection;
 
-namespace PrideRadiance.Hooks;
+namespace PrideRadiance.Utils;
 
 /// <summary>
-/// Hooks that modify the <see cref="DoubleRender"/> class.
+/// Utility class for embedded resources.
 /// </summary>
-[HookContainer]
-public class RadianceHooks
+public static class ResourceUtils
 {
-    [HarmonyPatch(typeof(DoubleRender), "Start")]
-    [HarmonyPostfix]
-    private static void StartPostfix(DoubleRender __instance)
+    /// <summary>
+    /// Fetches a file from the embedded resources and copies all of its bytes to an array.
+    /// </summary>
+    /// <param name="Filename">The name of the file.</param>
+    /// <returns>A <see cref="byte"/> array containing the file's contents.</returns>
+    /// <exception cref="FileNotFoundException">Thrown if the file doesn't exist.</exception>
+    public static byte[] GetBytesFromResource(string Filename)
     {
-        if (!StateTracker.RadianceTextures.Any())
-            return;
+        Assembly currentAssembly = Assembly.GetExecutingAssembly();
         
-        __instance.radiantMat.SetTexture("_BuffTex", StateTracker.RadianceTextures.PickRandom());
+        string fileName = currentAssembly.GetManifestResourceNames().Single(x => x.EndsWith(Filename));
+        byte[] allBytes;
+        
+        using (Stream fileStream = currentAssembly.GetManifestResourceStream(fileName))
+        {
+            if (fileStream == null) 
+                throw new FileNotFoundException($"The file \"{Filename}\" was not found in the DLL's resources.");
+
+            using (MemoryStream byteStream = new MemoryStream())
+            {
+                fileStream.CopyTo(byteStream);
+
+                allBytes = byteStream.ToArray();
+            }
+        }
+
+        return allBytes;
     }
 }
