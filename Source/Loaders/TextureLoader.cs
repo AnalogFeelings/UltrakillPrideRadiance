@@ -33,7 +33,8 @@ public class TextureLoader
     private readonly List<string> _AllFlags = new List<string>()
     {
         "GayFlag.png",
-        "TransFlag.png"
+        "TransFlag.png",
+        "BiFlag.png"
     };
 
     /// <summary>

@@ -32,6 +32,8 @@
       <EmbeddedResource Include="Resources\GayFlag.png" />
       <None Remove="Resources\TransFlag.png" />
       <EmbeddedResource Include="Resources\TransFlag.png" />
+      <None Remove="Resources\BiFlag.png" />
+      <EmbeddedResource Include="Resources\BiFlag.png" />
     </ItemGroup>
 
     <ItemGroup>
