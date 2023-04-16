@@ -34,7 +34,8 @@ public class TextureLoader
     {
         "GayFlag.png",
         "TransFlag.png",
-        "BiFlag.png"
+        "BiFlag.png",
+        "NonBinaryFlag.png"
     };
 
     /// <summary>
