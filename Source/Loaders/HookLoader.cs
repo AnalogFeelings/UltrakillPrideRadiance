@@ -25,12 +25,12 @@ using System.Reflection;
 using HarmonyLib;
 using PrideRadiance.Attributes;
 
-namespace PrideRadiance.Helpers;
+namespace PrideRadiance.Loaders;
 
 /// <summary>
-/// Class that handles registering classes containing the <see cref="HookContainer"/> attribute.
+/// Class that handles loading classes containing the <see cref="HookContainer"/> attribute.
 /// </summary>
-public class HookHelper
+public class HookLoader
 {
     /// <summary>
     /// Registers all the <see cref="HookContainer"/> classes in the current <see cref="Assembly"/>.
