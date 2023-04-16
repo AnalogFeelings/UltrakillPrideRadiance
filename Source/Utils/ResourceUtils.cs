@@ -40,20 +40,19 @@ public static class ResourceUtils
     {
         Assembly currentAssembly = Assembly.GetExecutingAssembly();
         
-        string fileName = currentAssembly.GetManifestResourceNames().Single(x => x.EndsWith(Filename));
+        string fileName = currentAssembly.GetManifestResourceNames().SingleOrDefault(x => x.EndsWith(Filename));
+        
+        if (fileName == default) 
+            throw new FileNotFoundException($"The file \"{Filename}\" was not found in the DLL's resources.");
+        
         byte[] allBytes;
         
         using (Stream fileStream = currentAssembly.GetManifestResourceStream(fileName))
+        using (MemoryStream byteStream = new MemoryStream())
         {
-            if (fileStream == null) 
-                throw new FileNotFoundException($"The file \"{Filename}\" was not found in the DLL's resources.");
+            fileStream.CopyTo(byteStream);
 
-            using (MemoryStream byteStream = new MemoryStream())
-            {
-                fileStream.CopyTo(byteStream);
-
-                allBytes = byteStream.ToArray();
-            }
+            allBytes = byteStream.ToArray();
         }
 
         return allBytes;
