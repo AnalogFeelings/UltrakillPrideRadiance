@@ -41,7 +41,8 @@ public class MainPlugin : BaseUnityPlugin
 
         // Load settings off file.
         StateTracker.ForcedFlag = Config.Bind("General", "FlagOverride", 
-            string.Empty, "The filename of the flag to force. This will disable randomization.");
+            string.Empty, "The filename of the flag to force. This will disable randomization.\n" +
+                          "You can find the list of valid filenames at https://github.com/AestheticalZ/UltrakillPrideRadiance#page_facing_up-flag-list");
 
         HookLoader = new HookLoader();
         TextureLoader = new TextureLoader();
