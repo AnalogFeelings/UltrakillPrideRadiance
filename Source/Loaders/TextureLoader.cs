@@ -56,9 +56,13 @@ public class TextureLoader
             // If it failed to load, no problem, try to load the rest.
             if (flagTexture)
             {
+                Debug.Log("Loaded pride flag override correctly!");
+                
                 StateTracker.FlagOverride = flagTexture;
                 return;
             }
+            
+            Debug.LogWarning("Failed to load pride flag override. Falling back to randomizer...");
         }
         
         foreach (string flag in _AllFlags)
@@ -71,6 +75,11 @@ public class TextureLoader
             
             StateTracker.RadianceTextures.Add(flagTexture);
         }
+        
+        if(StateTracker.RadianceTextures.Count > 0)
+            Debug.Log("Loaded pride flags successfully.");
+        else
+            Debug.LogError("Could not load any pride flags. Falling back to default ULTRAKILL code.");
     }
 
     /// <summary>
