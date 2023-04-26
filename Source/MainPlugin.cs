@@ -22,6 +22,7 @@
 using BepInEx;
 using HarmonyLib;
 using PrideRadiance.Loaders;
+using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 namespace PrideRadiance;
@@ -44,5 +45,8 @@ public class MainPlugin : BaseUnityPlugin
         
         HookLoader.RegisterAllHooks(Harmony);
         TextureLoader.LoadFlagTextures();
+        
+        // Cache the shader ID for efficiency.
+        StateTracker.RadianceTextureId = Shader.PropertyToID("_BuffTex");
     }
 }

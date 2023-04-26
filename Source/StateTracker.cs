@@ -29,5 +29,13 @@ namespace PrideRadiance;
 /// </summary>
 public static class StateTracker
 {
-    public static List<Texture2D> RadianceTextures = new List<Texture2D>();
+    /// <summary>
+    /// List that contains loaded pride flag textures.
+    /// </summary>
+    public static readonly List<Texture2D> RadianceTextures = new List<Texture2D>();
+    
+    /// <summary>
+    /// The cached ID of the _BuffTex shader parameter.
+    /// </summary>
+    public static int RadianceTextureId;
 }

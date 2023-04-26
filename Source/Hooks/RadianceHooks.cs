@@ -39,6 +39,6 @@ public class RadianceHooks
         if (!StateTracker.RadianceTextures.Any())
             return;
         
-        __instance.radiantMat.SetTexture("_BuffTex", StateTracker.RadianceTextures.PickRandom());
+        __instance.radiantMat.SetTexture(StateTracker.RadianceTextureId, StateTracker.RadianceTextures.PickRandom());
     }
 }
