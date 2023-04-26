@@ -15,5 +15,15 @@ I essentially wasted my time making this.
 
 Her mod can be found in the [ULTRAKILL Thunderstore page](https://thunderstore.io/c/ultrakill/p/NotABot/RadiantPride/).
 
+## :page_facing_up: Flag List
+This is the list of flag name overrides available.
+
+- BiFlag.png
+- GayFlag.png
+- NonBinaryFlag.png
+- TransFlag.png
+
+Feel free to open a pull request to add more flags!
+
 # :balance_scale: License
 This project is licensed under the [MIT License](LICENSE).
