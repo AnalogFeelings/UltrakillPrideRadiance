@@ -36,9 +36,16 @@ public class RadianceHooks
     [HarmonyPostfix]
     private static void StartPostfix(DoubleRender __instance)
     {
-        if (!StateTracker.RadianceTextures.Any())
-            return;
-        
-        __instance.radiantMat.SetTexture(StateTracker.RadianceTextureId, StateTracker.RadianceTextures.PickRandom());
+        if (!StateTracker.FlagOverride)
+        {
+            if (!StateTracker.RadianceTextures.Any())
+                return;
+            
+            __instance.radiantMat.SetTexture(StateTracker.RadianceTextureId, StateTracker.RadianceTextures.PickRandom());
+        }
+        else
+        {
+            __instance.radiantMat.SetTexture(StateTracker.RadianceTextureId, StateTracker.FlagOverride);
+        }
     }
 }

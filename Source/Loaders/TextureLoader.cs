@@ -37,7 +37,7 @@ public class TextureLoader
         "BiFlag.png",
         "NonBinaryFlag.png"
     };
-
+    
     /// <summary>
     /// Loads all the required flag textures into the <see cref="StateTracker"/>.
     /// </summary>
@@ -46,17 +46,48 @@ public class TextureLoader
     /// </remarks>
     public void LoadFlagTextures()
     {
+        string flagOverride = StateTracker.ForcedFlag.Value;
+        
+        if (!string.IsNullOrWhiteSpace(flagOverride) && _AllFlags.Contains(flagOverride))
+        {
+            byte[] flagContents = ResourceUtils.GetBytesFromResource(flagOverride);
+            Texture2D flagTexture = LoadTextureFromBytes(ref flagContents);
+
+            // If it failed to load, no problem, try to load the rest.
+            if (flagTexture)
+            {
+                StateTracker.FlagOverride = flagTexture;
+                return;
+            }
+        }
+        
         foreach (string flag in _AllFlags)
         {
             byte[] flagContents = ResourceUtils.GetBytesFromResource(flag);
-            
-            Texture2D flagTexture = new Texture2D(2, 2);
-            bool loadSuccessful = flagTexture.LoadImage(flagContents);
+            Texture2D flagTexture = LoadTextureFromBytes(ref flagContents);
 
-            if (!loadSuccessful)
+            if (!flagTexture)
                 continue; // Ignore.
             
             StateTracker.RadianceTextures.Add(flagTexture);
         }
+    }
+
+    /// <summary>
+    /// Loads a <see cref="Texture2D"/> from a <see cref="byte"/> array.
+    /// </summary>
+    /// <param name="ImageContent">The <see cref="byte"/> array containing the image data.</param>
+    /// <returns>
+    /// The loaded <see cref="Texture2D"/>, or null if the loading was unsuccessful.
+    /// </returns>
+    private Texture2D LoadTextureFromBytes(ref byte[] ImageContent)
+    {
+        Texture2D loadedTexture = new Texture2D(2, 2);
+        bool loadSuccessful = loadedTexture.LoadImage(ImageContent);
+
+        if (!loadSuccessful)
+            return null;
+
+        return loadedTexture;
     }
 }

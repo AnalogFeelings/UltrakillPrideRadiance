@@ -20,6 +20,7 @@
 #endregion
 
 using System.Collections.Generic;
+using BepInEx.Configuration;
 using UnityEngine;
 
 namespace PrideRadiance;
@@ -38,4 +39,14 @@ public static class StateTracker
     /// The cached ID of the _BuffTex shader parameter.
     /// </summary>
     public static int RadianceTextureId;
+
+    /// <summary>
+    /// The filename of the flag to use instead of randomizing it.
+    /// </summary>
+    public static ConfigEntry<string> ForcedFlag;
+
+    /// <summary>
+    /// The flag override to use always.
+    /// </summary>
+    public static Texture2D FlagOverride;
 }

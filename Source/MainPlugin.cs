@@ -39,6 +39,10 @@ public class MainPlugin : BaseUnityPlugin
     {
         Debug.Log("Using the PrideRadiance mod by AestheticalZ https://github.com/AestheticalZ");
 
+        // Load settings off file.
+        StateTracker.ForcedFlag = Config.Bind("General", "FlagOverride", 
+            string.Empty, "The filename of the flag to force. This will disable randomization.");
+
         HookLoader = new HookLoader();
         TextureLoader = new TextureLoader();
         Harmony = new Harmony("org.aestheticalz.ultrakill.prideradiance");
