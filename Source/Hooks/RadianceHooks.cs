@@ -32,7 +32,7 @@ namespace PrideRadiance.Hooks;
 [HookContainer]
 public class RadianceHooks
 {
-    [HarmonyPatch(typeof(DoubleRender), "Start")]
+    [HarmonyPatch(typeof(DoubleRender), "Awake")]
     [HarmonyPostfix]
     private static void StartPostfix(DoubleRender __instance)
     {
