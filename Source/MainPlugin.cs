@@ -27,7 +27,7 @@ using Debug = UnityEngine.Debug;
 
 namespace PrideRadiance;
 
-[BepInPlugin("org.aestheticalz.ultrakill.prideradiance", "PrideRadiance", "1.0.0.0")]
+[BepInPlugin("org.aestheticalz.ultrakill.prideradiance", "PrideRadiance", "1.1.0.0")]
 [BepInProcess("ULTRAKILL.exe")]
 public class MainPlugin : BaseUnityPlugin
 {

@@ -35,7 +35,8 @@ public class TextureLoader
         "GayFlag.png",
         "TransFlag.png",
         "BiFlag.png",
-        "NonBinaryFlag.png"
+        "NonBinaryFlag.png",
+        "LesbianFlag.png"
     };
     
     /// <summary>
@@ -53,7 +54,6 @@ public class TextureLoader
             byte[] flagContents = ResourceUtils.GetBytesFromResource(flagOverride);
             Texture2D flagTexture = LoadTextureFromBytes(ref flagContents);
 
-            // If it failed to load, no problem, try to load the rest.
             if (flagTexture)
             {
                 Debug.Log("Loaded pride flag override correctly!");
@@ -62,6 +62,7 @@ public class TextureLoader
                 return;
             }
             
+            // If it failed to load, no problem, try to load the rest.
             Debug.LogWarning("Failed to load pride flag override. Falling back to randomizer...");
         }
         

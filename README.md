@@ -22,6 +22,7 @@ This is the list of flag name overrides available.
 - GayFlag.png
 - NonBinaryFlag.png
 - TransFlag.png
+- LesbianFlag.png
 
 Feel free to open a pull request to add more flags!
 

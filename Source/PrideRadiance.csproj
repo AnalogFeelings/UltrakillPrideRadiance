@@ -7,8 +7,8 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latest</LangVersion>
         <Company>AestheticalZ</Company>
-        <AssemblyVersion>1.0.0.0</AssemblyVersion>
-        <FileVersion>1.0.0.0</FileVersion>
+        <AssemblyVersion>1.1.0.0</AssemblyVersion>
+        <FileVersion>1.1.0.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -36,6 +36,8 @@
       <EmbeddedResource Include="Resources\BiFlag.png" />
       <None Remove="Resources\NonBinaryFlag.png" />
       <EmbeddedResource Include="Resources\NonBinaryFlag.png" />
+      <None Remove="Resources\LesbianFlag.png" />
+      <EmbeddedResource Include="Resources\LesbianFlag.png" />
     </ItemGroup>
 
     <ItemGroup>
