@@ -1,6 +1,6 @@
 ﻿#region License Information (MIT)
 // UltrakillPrideRadiance - An ULTRAKILL mod that makes radiant enemies have pride flag shines.
-// Copyright © 2023 AestheticalZ
+// Copyright © 2023 Analog Feelings
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the “Software”), to deal in the Software without restriction,

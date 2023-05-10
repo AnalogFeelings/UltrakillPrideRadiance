@@ -1,6 +1,6 @@
 ﻿#region License Information (MIT)
 // UltrakillPrideRadiance - An ULTRAKILL mod that makes radiant enemies have pride flag shines.
-// Copyright © 2023 AestheticalZ
+// Copyright © 2023 Analog Feelings
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 // associated documentation files (the “Software”), to deal in the Software without restriction,
@@ -37,12 +37,12 @@ public class MainPlugin : BaseUnityPlugin
     
     private void Awake()
     {
-        Debug.Log("Using the PrideRadiance mod by AestheticalZ https://github.com/AestheticalZ");
+        Debug.Log("Using the PrideRadiance mod by Analog Feelings https://github.com/AnalogFeelings");
 
         // Load settings off file.
         StateTracker.ForcedFlag = Config.Bind("General", "FlagOverride", 
             string.Empty, "The filename of the flag to force. This will disable randomization.\n" +
-                          "You can find the list of valid filenames at https://github.com/AestheticalZ/UltrakillPrideRadiance#page_facing_up-flag-list");
+                          "You can find the list of valid filenames at https://github.com/AnalogFeelings/UltrakillPrideRadiance#page_facing_up-flag-list");
 
         HookLoader = new HookLoader();
         TextureLoader = new TextureLoader();
