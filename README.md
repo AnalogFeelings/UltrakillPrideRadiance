@@ -1,10 +1,10 @@
 # :rainbow_flag: UltrakillPrideRadiance
-![Lines of code](https://img.shields.io/tokei/lines/github/aestheticalz/ultrakillprideradiance?label=Lines%20Of%20Code&style=flat-square)
-![GitHub issues by-label](https://img.shields.io/github/issues/aestheticalz/ultrakillprideradiance/master?label=Issues&style=flat-square)
-![GitHub pull requests by-label](https://img.shields.io/github/issues-pr/aestheticalz/ultrakillprideradiance/master?label=Pull%20Requests&style=flat-square)
-![GitHub](https://img.shields.io/github/license/aestheticalz/ultrakillprideradiance?label=License&style=flat-square)
-![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/aestheticalz/ultrakillprideradiance/master?label=Commit%20Activity&style=flat-square)
-![GitHub Repo stars](https://img.shields.io/github/stars/aestheticalz/ultrakillprideradiance?label=Stargazers&style=flat-square)
+![Lines of code](https://img.shields.io/tokei/lines/github/analogfeelings/ultrakillprideradiance?label=Lines%20Of%20Code&style=flat-square)
+![GitHub issues by-label](https://img.shields.io/github/issues/analogfeelings/ultrakillprideradiance/master?label=Issues&style=flat-square)
+![GitHub pull requests by-label](https://img.shields.io/github/issues-pr/analogfeelings/ultrakillprideradiance/master?label=Pull%20Requests&style=flat-square)
+![GitHub](https://img.shields.io/github/license/analogfeelings/ultrakillprideradiance?label=License&style=flat-square)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/analogfeelings/ultrakillprideradiance/master?label=Commit%20Activity&style=flat-square)
+![GitHub Repo stars](https://img.shields.io/github/stars/analogfeelings/ultrakillprideradiance?label=Stargazers&style=flat-square)
   
 An ULTRAKILL plugin that replaces the default radiance glow with pride flags.  
 Requires [BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html) to be installed.
